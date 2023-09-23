@@ -2,6 +2,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinKapt)
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -28,21 +30,29 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_14
+        targetCompatibility = JavaVersion.VERSION_14
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "14"
+    }
+    android {
+        buildFeatures {
+            viewBinding = true
+        }
     }
 }
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
+    implementation(libs.bundles.core)
+    implementation(libs.bundles.viewmodel)
+    kapt(libs.lifecycle.compiler)
     implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    implementation(libs.bundles.ktor)
+    implementation(libs.bundles.coroutines)
+
+
+    testImplementation(libs.bundles.testimpl)
+    androidTestImplementation(libs.bundles.androidtestimpl)
 }
