@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.imageLoader
+import coil.load
 import tech.arnav.monawallpapers.databinding.ListItemMonaCardBinding
 import tech.arnav.monawallpapers.http.MonaData
 import tech.arnav.monawallpapers.http.MonaDatum
@@ -37,6 +39,7 @@ class MonaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val binding = ListItemMonaCardBinding.bind(itemView)
     fun bind(item: MonaDatum) {
         binding.tvMonaTitle.text = item.title
+        binding.ivMonaImage.load(item.imgURL)
     }
 }
 
