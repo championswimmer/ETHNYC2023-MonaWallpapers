@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import tech.arnav.monawallpapers.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,15 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "setOnClickListener: ")
             viewModel.getMonaData()
         }
+        _binding.rvMonaData.layoutManager = GridLayoutManager(this, 2)
+        _binding.rvMonaData.adapter = MonaGridAdapter()
+
+        viewModel.monaDataLiveData.observe(this) {
+            Log.d(TAG, "onCreate: ${it.size}")
+            ( _binding.rvMonaData.adapter as MonaGridAdapter).setMonaData(it)
+        }
+
+        viewModel.getMonaData()
 
     }
 }

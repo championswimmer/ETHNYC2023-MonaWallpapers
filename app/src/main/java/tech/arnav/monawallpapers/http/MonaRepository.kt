@@ -14,11 +14,12 @@ class MonaRepository {
             "https://raw.githubusercontent.com/championswimmer/ETHNYC2023-MonaScraper/main/data/monaverse.json"
     }
 
-    suspend fun getMonaData() {
+    suspend fun getMonaData(): MonaData {
         val resp: String = ktorClient.get(MONA_DATA) {
         }.body()
         val monaData = Json.decodeFromString<MonaData>(resp)
         Log.d(TAG, "getMonaData: ")
         Log.d(TAG, "${monaData.size}")
+        return monaData
     }
 }
