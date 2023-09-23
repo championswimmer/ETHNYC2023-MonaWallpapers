@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.bundles.ktor)
     implementation(libs.bundles.coroutines)
+    implementation(libs.coil)
+    implementation(libs.bundles.layout)
 
 
     testImplementation(libs.bundles.testimpl)

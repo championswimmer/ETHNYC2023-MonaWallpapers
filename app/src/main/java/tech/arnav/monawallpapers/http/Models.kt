@@ -1,8 +1,7 @@
-package tech.arnav.monawallpapers
+package tech.arnav.monawallpapers.http
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.JsonArray
 
 
 typealias MonaData = Array<MonaDatum>

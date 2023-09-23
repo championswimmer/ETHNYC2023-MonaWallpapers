@@ -10,6 +10,8 @@ material = "1.9.0"
 constraintlayout = "2.1.4"
 lifecycle = "2.6.2"
 kapt = "1.6.0"
+ktor = "2.3.4"
+recyclerview = "1.3.1"
 
 [libraries]
 # Core
@@ -19,6 +21,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 
 #Layout
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 # Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -32,24 +35,27 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "lifecycle" }
 
 # Ktor Client
-ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version = "1.6.4" }
-ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version = "1.6.4" }
-ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version = "1.6.4" }
-
-# KotlinX Serialisation
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.3.0" }
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
+ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 #Coroutines
-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.6.1" }
-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "1.6.1" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.7.2" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "1.7.2" }
+
+# Coil
+coil = { group = "io.coil-kt", name = "coil", version = "2.4.0" }
 
 [bundles]
 core = ["core-ktx", "appcompat", "material"]
 testimpl = ["junit", "androidx-test-ext-junit"]
 androidtestimpl = ["espresso-core"]
 viewmodel = ["lifecycle-viewmodel-ktx", "lifecycle-livedata-ktx", "lifecycle-runtime-ktx"]
-ktor = ["ktor-client-android", "ktor-client-serialization", "ktor-client-logging", "kotlinx-serialization-json"]
+ktor = ["ktor-client-android", "ktor-client-serialization", "ktor-client-logging", "ktor-serialization-kotlinx-json", "ktor-client-content-negotiation"]
 coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
+layout = ["constraintlayout", "recyclerview"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

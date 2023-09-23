@@ -1,8 +1,8 @@
-package tech.arnav.monawallpapers
+package tech.arnav.monawallpapers.http
 
 import android.util.Log
+import io.ktor.client.call.body
 import io.ktor.client.request.get
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 
@@ -15,9 +15,10 @@ class MonaRepository {
     }
 
     suspend fun getMonaData() {
-        val monaDataString = ktorClient.get<String>(MONA_DATA)
-        val monaData = Json.decodeFromString<MonaData>(monaDataString)
+        val resp: String = ktorClient.get(MONA_DATA) {
+        }.body()
+        val monaData = Json.decodeFromString<MonaData>(resp)
         Log.d(TAG, "getMonaData: ")
-        Log.d(TAG, "$monaData")
+        Log.d(TAG, "${monaData.size}")
     }
 }
