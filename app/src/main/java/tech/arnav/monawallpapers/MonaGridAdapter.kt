@@ -39,7 +39,12 @@ class MonaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val binding = ListItemMonaCardBinding.bind(itemView)
     fun bind(item: MonaDatum) {
         binding.tvMonaTitle.text = item.title
-        binding.ivMonaImage.load(item.imgURL)
+        binding.ivMonaImage.load(item.imgURL) {
+            placeholder(R.drawable.placeholder)
+            crossfade(true)
+            crossfade(1000)
+        }
+        binding.tvMonaArtist.text = item.artist
     }
 }
 
