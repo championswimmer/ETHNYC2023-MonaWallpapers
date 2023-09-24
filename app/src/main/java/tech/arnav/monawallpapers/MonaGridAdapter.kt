@@ -1,5 +1,6 @@
 package tech.arnav.monawallpapers
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.imageLoader
 import coil.load
+import kotlinx.serialization.json.Json
 import tech.arnav.monawallpapers.databinding.ListItemMonaCardBinding
 import tech.arnav.monawallpapers.http.MonaData
 import tech.arnav.monawallpapers.http.MonaDatum
+import tech.arnav.monawallpapers.item.MonaItemActivity
 
 class MonaGridAdapter() : ListAdapter<MonaDatum, MonaViewHolder>(MonaItemDiffCallback()) {
 
@@ -45,7 +48,15 @@ class MonaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             crossfade(1000)
         }
         binding.tvMonaArtist.text = item.artist
+
+        binding.cvMonaCard.setOnClickListener {
+            val intent = Intent(itemView.context, MonaItemActivity::class.java)
+            intent.putExtra("data", Json.encodeToString(MonaDatum.serializer(), item))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            itemView.context.applicationContext.startActivity(intent)
+        }
     }
+
 }
 
 class MonaItemDiffCallback : DiffUtil.ItemCallback<MonaDatum>() {

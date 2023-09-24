@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.bundles.ktor)
     implementation(libs.bundles.coroutines)
     implementation(libs.coil)
+    implementation(libs.exoplayer)
     implementation(libs.bundles.layout)
 
 
