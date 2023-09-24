@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.kotlinKapt) apply false
-    kotlin("plugin.serialization") version "1.9.0" apply false
+    kotlin("plugin.serialization") version "1.8.0" apply false
 
 }
 true // Needed to make the Suppress annotation work for the plugins block

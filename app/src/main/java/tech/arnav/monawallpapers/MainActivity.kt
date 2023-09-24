@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import coil.ImageLoader
 import coil.request.ImageRequest
 import tech.arnav.monawallpapers.databinding.ActivityMainBinding
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         Log.d(TAG, "onCreate: ")
 
-        _binding.rvMonaData.layoutManager = GridLayoutManager(this, 2)
+        _binding.rvMonaData.layoutManager = LinearLayoutManager(this)
         _binding.rvMonaData.adapter = MonaGridAdapter()
 
         viewModel.monaDataLiveData.observe(this) {
