@@ -70,4 +70,9 @@
         <item name="fontFamily">@font/robotomono_bold</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <style name="Toolbar.Subtitle">
+        <item name="fontFamily">@font/robotomono_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

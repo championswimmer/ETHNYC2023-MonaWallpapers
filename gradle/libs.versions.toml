@@ -48,6 +48,10 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 # Coil
 coil = { group = "io.coil-kt", name = "coil", version = "2.4.0" }
 
+# ExoPlayer
+exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer", version = "2.19.1" }
+
+
 [bundles]
 core = ["core-ktx", "appcompat", "material"]
 testimpl = ["junit", "androidx-test-ext-junit"]

@@ -13,6 +13,7 @@
         android:layout_margin="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:id="@+id/cv_mona_card"
         android:foreground="?android:attr/selectableItemBackground"
         android:padding="20dp"
         app:cardCornerRadius="0dp"
