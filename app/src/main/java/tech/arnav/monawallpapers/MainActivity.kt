@@ -19,10 +19,6 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         Log.d(TAG, "onCreate: ")
 
-        _binding.btnFetchMonoData.setOnClickListener {
-            Log.d(TAG, "setOnClickListener: ")
-            viewModel.getMonaData()
-        }
         _binding.rvMonaData.layoutManager = GridLayoutManager(this, 2)
         _binding.rvMonaData.adapter = MonaGridAdapter()
 
